@@ -30,7 +30,9 @@ public class PCPlayerController2 : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        
+
+        bool isSprinting = Input.GetKey(KeyCode.LeftShift) && canSprint;
+        float speed = isSprinting ? runSpeed : walkSpeed;
 
         if (isSprinting)
         {
@@ -56,10 +58,10 @@ public class PCPlayerController2 : MonoBehaviour
         animator.SetFloat("Speed", direction.magnitude * (isSprinting ? 2f : 1f));
     }
 
+    //it used to force the playr's sprint when player trigger the enemy
+
     void Sprint()
     {
-        bool isSprinting = Input.GetKey(KeyCode.LeftShift) && canSprint;
-        float speed = isSprinting ? runSpeed : walkSpeed;
 
         sprintTimer += Time.deltaTime;
         if (sprintTimer >= sprintDuration)
