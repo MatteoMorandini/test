@@ -37,7 +37,6 @@ public class PCPlayerController2 : MonoBehaviour
         if (isSprinting)
         {
             Sprint();
-
         }
 
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
