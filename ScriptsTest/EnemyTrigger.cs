@@ -1,7 +1,18 @@
-﻿using System;
+﻿//I don't know if is ti correct or it will work 
+
+
+
+using System;
 
 public class TriggerEnemy : MonoBehaviour
 {
+    private Render _render;
+
+    void Start()
+    {
+        _render = GetComponenmt<Render>();
+    }
+
     private void OnTriggerEnter(collider other)
     {
         if(other.CompareTag("Enemy"))
@@ -10,7 +21,7 @@ public class TriggerEnemy : MonoBehaviour
 
             if (enemy != null)
             {
-                enemy.ActivateEnemy();
+                _render.enabled = true;
             }
         }
     }
